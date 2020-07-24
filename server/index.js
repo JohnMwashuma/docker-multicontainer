@@ -1,3 +1,7 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const { Pool } = require('pg');
 const redis = require('redis');
 
@@ -20,3 +24,7 @@ const redisClient = redis.createClient({
   retry_strategy: () => 1000,
 });
 const redisPublisher = redisClient.duplicate();
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
