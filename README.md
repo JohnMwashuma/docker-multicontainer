@@ -1,4 +1,6 @@
-# docker-multicontainer
+### Docker Multicontainer Development Environment
+
+---
 
 Sets up a docker multicontainer development environment for the following apps:
 
@@ -6,3 +8,9 @@ Sets up a docker multicontainer development environment for the following apps:
 - Node Redis Worker
 - Node Backend
 - Nginx router
+
+### Architecture Diagram:
+
+---
+
+![](Architecture_diagram.png)
