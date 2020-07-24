@@ -31,11 +31,22 @@ class Fib extends Component {
     return entries;
   }
 
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const { index } = this.state;
+
+    await axios.post('/api/index', {
+      index,
+    });
+
+    this.setState({ index: '' });
+  };
+
   render() {
     const { index } = this.state;
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>Enter index: </label>
           <input
             value={index}
