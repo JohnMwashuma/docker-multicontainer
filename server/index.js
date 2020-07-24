@@ -28,3 +28,9 @@ const redisPublisher = redisClient.duplicate();
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get('/indexes/all', async (req, res) => {
+  const indexes = await pgClient.query('SELECT * from fibindexes');
+
+  res.send(indexes.rows);
+});
