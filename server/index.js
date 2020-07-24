@@ -35,7 +35,7 @@ app.get('/indexes/all', async (req, res) => {
   res.send(indexes.rows);
 });
 
-app.get('/indexes/values', async (req, res) => {
+app.get('/indexes/fibvalues', async (req, res) => {
   redisClient.hgetall('values', (err, values) => {
     res.send(values);
   });
