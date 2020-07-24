@@ -8,10 +8,10 @@ class Fib extends Component {
   };
 
   componentDidMount() {
-    this.fetchValues();
+    this.fetchIndexFibValues();
   }
 
-  async fetchValues() {
+  async fetchIndexFibValues() {
     const values = await axios.get('/api/indexes/fibvalues');
     this.setState({ values: values.data });
   }
