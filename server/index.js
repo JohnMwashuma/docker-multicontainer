@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const redis = require('redis');
 
 const pgClient = new Pool({
   user: keys.pgUser,
@@ -12,3 +13,10 @@ pgClient.on('error', () => console.log('Lost PG connection'));
 pgClient
   .query('CREATE TABLE IF NOT EXISTS fibindexes (number INT)')
   .catch((err) => console.log(err));
+
+const redisClient = redis.createClient({
+  host: keys.redisHost,
+  port: keys.redisPort,
+  retry_strategy: () => 1000,
+});
+const redisPublisher = redisClient.duplicate();
