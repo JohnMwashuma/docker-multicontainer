@@ -5,15 +5,24 @@ class Fib extends Component {
   state = {
     values: {},
     index: '',
+    seenIndexes: [],
   };
 
   componentDidMount() {
+    this.fetchIndexes();
     this.fetchIndexFibValues();
   }
 
   async fetchIndexFibValues() {
     const values = await axios.get('/api/indexes/fibvalues');
     this.setState({ values: values.data });
+  }
+
+  async fetchIndexes() {
+    const seenIndexes = await axios.get('/api/values/all');
+    this.setState({
+      seenIndexes: seenIndexes.data,
+    });
   }
 
   renderValues() {
