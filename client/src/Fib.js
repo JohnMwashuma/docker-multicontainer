@@ -4,6 +4,7 @@ import axios from 'axios';
 class Fib extends Component {
   state = {
     values: {},
+    index: '',
   };
 
   componentDidMount() {
@@ -31,8 +32,18 @@ class Fib extends Component {
   }
 
   render() {
+    const { index } = this.state;
     return (
       <div>
+        <form>
+          <label>Enter index: </label>
+          <input
+            value={index}
+            onChange={(event) => this.setState({ index: event.target.value })}
+          />
+          <button>Submit</button>
+        </form>
+
         <h3>Indexes Values:</h3>
         {this.renderValues()}
       </div>
