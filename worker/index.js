@@ -7,3 +7,8 @@ const redisClient = redis.createClient({
   retry_strategy: () => 1000,
 });
 const sub = redisClient.duplicate();
+
+const fib = (index) => {
+  if (index < 2) return 1;
+  return fib(index - 1) + fib(index - 2);
+};
