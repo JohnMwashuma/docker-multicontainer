@@ -51,6 +51,11 @@ class Fib extends Component {
     this.setState({ index: '' });
   };
 
+  renderSeenIndexes() {
+    const { seenIndexes } = this.state;
+    return seenIndexes.map(({ index }) => index).join(', ');
+  }
+
   render() {
     const { index } = this.state;
     return (
@@ -63,6 +68,9 @@ class Fib extends Component {
           />
           <button>Submit</button>
         </form>
+
+        <h3>Indexes Submitted:</h3>
+        {this.renderSeenIndexes()}
 
         <h3>Indexes Values:</h3>
         {this.renderValues()}
