@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>React, redis, node and docker app</h1>
+        <h1>React, redis, node and docker Fib Calculator</h1>
         <Link to="/">Home</Link>
         <Link to="/about">About Page</Link>
       </header>
