@@ -25,3 +25,9 @@ spec:
             - name: postgres-storage # This should be same as the volumes name above
               mountPath: /var/lib/postgresql/data
               subPath: postgres # Any data inside the container that is stored inside mountPath is going to be stored in a folder called `postgres` inside the persistent volumne claim.
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: PGPASSWORD
