@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3 # Number of pods
+  selector: # The selector that this deployment will use to find the set of pods that it will be controlling.
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: jmwashuma/multi-server
+          ports:
+            - containerPort: 5000
